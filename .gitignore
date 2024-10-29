@@ -42,4 +42,5 @@
 .idea
 
 # Ignore .keep files
-/.keep
+!/.keep
+!/.env
