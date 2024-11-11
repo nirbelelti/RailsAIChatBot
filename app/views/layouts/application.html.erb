@@ -11,6 +11,10 @@
   </head>
 
   <body>
+
+    <%= render partial: 'layouts/shared/navbar' %>
+    <div class="container-fluid d-flex vh-100">
     <%= yield %>
+  </div>
   </body>
 </html>
