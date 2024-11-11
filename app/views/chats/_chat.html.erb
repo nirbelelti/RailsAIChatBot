@@ -1,5 +1,4 @@
 <%= turbo_frame_tag dom_id(chat) do %>
-  <% puts "SSSSSSSSSSSSSSSSS #{chat.id}"%>
   <div class="row">
     <div class="col">
       <%= link_to (chat.history.nil? || chat.history.dig("massages",0,"content").nil? ? "chat_#{chat.id}" : chat.history.dig("massages",0,"content")),
