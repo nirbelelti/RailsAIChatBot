@@ -40,8 +40,8 @@ asynchronously. This integration showcases the effective use of background jobs 
 
 1. **Clone the repository**:
    ```sh
-   git clone https://github.com/yourusername/rails_chat_bot.git
-   cd rails_chat_bot
+   git clonehttps://github.com/nirbelelti/RailsAIChatBot.git
+   cd RailsAIChatBot
    
     ```
 2. **Install dependencies**:
