@@ -67,7 +67,7 @@ class ChatsController < ApplicationController
           render turbo_stream: [
             turbo_stream.replace('chat_content', partial: 'current_chat', locals: { chat: @chat }),
           ]
-                  end
+        end
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @chat.errors, status: :unprocessable_entity }
