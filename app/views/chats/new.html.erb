@@ -1,0 +1,5 @@
+<% content_for :title, "New chat" %>
+
+<%= turbo_frame_tag "new_chat" do %>
+  <%= render "form", chat: @chat %>
+<% end %>

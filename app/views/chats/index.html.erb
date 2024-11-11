@@ -1,0 +1,47 @@
+<% content_for :title, "Chats" %>
+
+<div class="row align-self-stretch w-100">
+  <div class="col-2 bg-secondary h-100 h-auto d-inline-block text-center ">
+
+    <div class="row justify-content-center">
+      <div class="col-10  mt-3 ">
+        <%= link_to "New Chat", chats_path(chat: { user_id: current_user.id}), data: { turbo_frame: 'new_chat', turbo_method: :post}, class: "btn btn btn-outline-light w-100" %>
+      </div>
+    </div>
+
+    <%= turbo_frame_tag "new_chat" %>
+    <%= turbo_frame_tag 'chats' do %>
+      <%= render @chats%>
+    <% end %>
+
+  </div>
+  <div class="col-10">
+    <div class="row">
+      <h1>Chats</h1>
+    </div>
+    <div class="row align-self-stretch w-100">
+      <div class="col h-75 ">
+        <div class="col h-75 ">
+          <% if @chats.any? %>
+            <%= render partial: 'current_chat', locals: { chat: @chats.first} %>
+          <% else %>
+          <div id="chat_content"></div>
+          <% end %>
+          </div>
+      </div>
+    </div>
+    <div class="row fixed-bottom justify-content-center ">
+      <div class="col-9 offset-2">
+        <div  id="question_input">
+          <%= render partial: "add_question", locals: { chat: @chats.first} if @chats.any?  %>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+

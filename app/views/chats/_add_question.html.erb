@@ -1,0 +1,30 @@
+<!--  <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">-->
+<!--  <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>-->
+
+<%= form_with(model: chat, url: chat_path(chat), method: :patch, id: dom_id(chat), class: "form-group", data: { turbo_frame: dom_id(chat), 'turbo-method' => :post, controller: "question-submit", action: "turbo:submit-start->question-submit#submitStart turbo:submit-end->question-submit#submitEnd" }) do |form| %>
+  <div class="row mt-5">
+    <div class="col">
+      <div class="input-group mb-3 mt-5">
+        <%= form.text_field :question,
+                            class: "form-control",
+                            placeholder: 'enter your question',
+                            aria: { label: 'question', describedby: "button-question" },
+                            data: { question_submit_target: "input" },
+                            required: true
+        %>
+
+        <%= form.button 'Add',
+                        type: :submit,
+                        class: "btn btn-outline-secondary",
+                        id: "button-question",
+                        data: { question_submit_target: "button" } %>
+
+      </div>
+    </div>
+    <div class="col-1 mt-5 d-none" data-question-submit-target="spinner">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  </div>
+<% end %>

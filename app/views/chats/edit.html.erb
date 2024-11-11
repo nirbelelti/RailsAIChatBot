@@ -1,0 +1,18 @@
+<% content_for :title, "Editing chat" %>
+
+<%= turbo_frame_tag dom_id(@chat) do %>
+
+  <%= render "add_question", chat: @chat %>
+
+<% end %>
+
+<!--<h1>Editing chat</h1>-->
+
+<%#= render "form", chat: @chat %>
+
+<!--<br>-->
+
+<!--<div>-->
+<!--  <%#= link_to "Show this chat", @chat %> |-->
+  <%#= link_to "Back to chats", chats_path %>
+<!--</div>-->

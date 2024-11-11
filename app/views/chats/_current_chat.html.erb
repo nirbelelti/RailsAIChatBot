@@ -1,0 +1,50 @@
+<div id="chat_content" class="mt-5 mb-5 p-5" data-controller="scroll" data-scroll-target="scroll">
+  <% unless chat.history.nil? %>
+    <% chat.history.dig('massages').each do |c| %>
+      <div class="row justify-content-center">
+        <div class="col-10 h-auto">
+          <% if c['role'] == "user" %>
+            <div class="row  mt-5 mb-1 ">
+              <div class="col-6  ">
+                You:
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6 bg-primary rounded-4 p-4 ">
+                <%= c['content'] %>
+              </div>
+            </div>
+          <% else %>
+            <div class="row justify-content-end mt-5  mb-1">
+              <div class="col-6  ">
+                Bot:
+              </div>
+            </div>
+            <div class="row justify-content-end">
+              <div class="col-6 bg-secondary  rounded-4 p-4 ">
+                <%= c['content'] %>
+              </div>
+            </div>
+          <% end %>
+
+        </div>
+
+      </div>
+    <% end %>
+  <% else %>
+    <div class="row justify-content-center">
+      <div class="col-10 h-auto">
+        <div class="row  mt-5 mb-1 ">
+          <div class="col-6  ">
+            Bot:
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6 bg-secondary rounded-4 p-4 ">
+            <%= "Hello, I am a bot. How can I help you?" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
