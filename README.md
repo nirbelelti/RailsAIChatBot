@@ -10,6 +10,10 @@ The core functionality of RailsChatBot demonstrates seamless communication with 
 generation tool. Through an initializer, the application establishes a connection with the Gemini API, sending user queries
 and receiving intelligent, conversational responses. This setup highlights how Rails applications can efficiently leverage
 external APIs for enhanced functionality and user engagement within a Turbo-powered chat interface.
+
+Additionally, RailsChatBot incorporates Sidekiq to handle background processing. By offloading API calls and other tasks
+to Sidekiq workers, the application maintains a fast, responsive user experience even while handling intensive operations
+asynchronously. This integration showcases the effective use of background jobs in Rails to optimize performance and scalability.
 ## Features
 
 - User authentication with Devise
