@@ -81,3 +81,5 @@ purposes, the seed data includes a user with the following credentials: email: '
  ```
 The tests include model, request, and routing specs, ensuring the application's core functionality is working as expected.
 
+## License
+MIT License
