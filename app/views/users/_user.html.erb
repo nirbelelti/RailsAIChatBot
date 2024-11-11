@@ -1,0 +1,19 @@
+<%= turbo_frame_tag dom_id(user) do %>
+  <div class="container border rounded mb-3">
+    <div class="row mt-3 mb-3">
+      <div class="col-5">
+        <strong>Email:</strong>
+        <%= user.email %>
+      </div>
+      <div class="col text-end">
+        <%= link_to 'edit', edit_user_path(user) %>
+      </div>
+    </div>
+    <div class="row mt-3 mb-3">
+      <div class="col-5">
+        <strong>created at:</strong>
+        <%= user.created_at.strftime("%d/%m/%Y") %>
+      </div>
+  </div>
+  </div>
+<% end %>

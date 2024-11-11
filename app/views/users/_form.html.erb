@@ -1,0 +1,47 @@
+<%= form_with(model: user, id: dom_id(user), class: "form-group") do |form| %>
+  <% if user.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <ul>
+        <% user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="container border rounded mb-3 mt-2">
+    <div class="row mt-2">
+      <div class="col text-end">
+        <%= link_to 'X', user, class: "btn btn-secondary" %>
+      </div>
+    </div>
+    <div class="row mt-1">
+      <div class="form-group col-md-5 col-sm-6 ">
+        <%= form.label :email %>
+        <%= form.email_field :email, autofocus: true, required: true, autocomplete: "new-email", class: "form-control" %>
+      </div>
+    </div>
+    <div class="row mt-1">
+      <div class="form-group col-md-4 col-sm-6">
+        <%= form.label :password %>
+        <%= form.password_field :password, required: user.new_record?, minlength: 4, autocomplete: "new-password", class: "form-control" %>
+      </div>
+      <div class="form-group col-md-4 col-sm-6">
+        <%= form.label :password_confirmation %>
+        <%= form.password_field :password_confirmation, required: user.new_record?, minlength: 4, autocomplete: "new-password", class: "form-control" %>
+      </div>
+    </div>
+
+
+    <div class="row mt-3 mb-3">
+      <div class="col">
+        <%= form.submit class: "btn btn-primary " %>
+      </div>
+      <div class="col text-end">
+        <% unless action_name == 'new' || action_name == 'create' %>
+          <%= link_to 'trash', user, method: :delete, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

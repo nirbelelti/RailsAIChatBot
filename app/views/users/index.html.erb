@@ -1,0 +1,15 @@
+<div class="container">
+  <%= turbo_frame_tag 'users' do %>
+    <div class="row">
+      <div class="col-10">
+        <h1>Users</h1>
+      </div>
+    </div>
+    <div class="col-2 text-end">
+      <%= link_to 'New user', new_user_path, class: 'btn btn-primary' %>
+    </div>
+    <div class="mt-2">
+      <%= render 'users' %>
+    </div>
+  <% end %>
+  </div>
